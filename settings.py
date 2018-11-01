@@ -18,6 +18,7 @@ class Settings:
         self.ship_acceleration_factor = 0.2
         self.ship_friction_factor = 0.90
         self.ship_HP = 300
+        self.ship_HP_restore = 0.3
 
         self.alien_speed_factor = 30 / self.default_fps
         self.alien_HP = 1500

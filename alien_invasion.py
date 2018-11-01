@@ -38,6 +38,7 @@ def run_game():
 
         if stats.game_active:
             ship.move()
+            ship.restore()
             gf.update_bullets(ai_settings, screen, ship, bullets, aliens)
             gf.update_weapon(ship)
             gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)

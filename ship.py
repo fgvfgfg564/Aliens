@@ -29,6 +29,7 @@ class Ship:
         self.friction_factor = ai_settings.ship_friction_factor
 
         self.HP_max = self.HP = ai_settings.ship_HP
+        self.HP_restore = ai_settings.ship_HP_restore
 
         self.centerx = float(self.rect.centerx)
         self.centery = float(self.rect.centery)
@@ -89,11 +90,15 @@ class Ship:
                 each.fire()
 
     def set_weapon_active(self, num):
-        num -= 1
-        self.current_weapon = num
-        for each in self.weapons:
-            each.set_active(False)
-        self.weapons[num].set_active(True)
+        try:
+            num -= 1
+            if num > 3: return
+            self.current_weapon = num
+            for each in self.weapons:
+                each.set_active(False)
+            self.weapons[num].set_active(True)
+        except:
+            pass
 
     def gain_damage(self, damage):
         self.HP -= damage
@@ -101,3 +106,7 @@ class Ship:
             self.hit_sound.play()
         else:
             self.death_sound.play()
+
+    def restore(self):
+        self.HP += self.HP_restore
+        self.HP = min(self.HP, self.HP_max)

@@ -66,8 +66,8 @@ class CloseQuarters(Weapon):
     def __init__(self, ai_settings, screen, ship, bullets):
         super().__init__(ai_settings, BulletNM, screen, ship, bullets)
         self.set_bullet_amount(6)
-        self.set_scatter_x(80)
-        self.set_scatter_angle(10)
+        self.set_scatter_x(40)
+        self.set_scatter_angle(11)
         self.interval = 0.2 * ai_settings.default_fps
 
 
